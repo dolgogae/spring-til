@@ -29,8 +29,6 @@ ext {
 	 */
 	// Feign
 	set('springCloudVersion', '2023.0.0')
-
-	set('commonsLangVersion', '3.12.0')
 }
 
 dependencyManagement {
@@ -47,6 +45,8 @@ dependencies {
 
 	// feign
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '4.1.0'
+
+	implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
 }
 
 tasks.named('test') {

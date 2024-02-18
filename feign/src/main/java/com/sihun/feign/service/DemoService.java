@@ -1,5 +1,6 @@
 package com.sihun.feign.service;
 
+import com.sihun.feign.common.dto.BaseRequestInfo;
 import com.sihun.feign.common.dto.BaseResponseInfo;
 import com.sihun.feign.feign.client.DemoFeignClient;
 import lombok.RequiredArgsConstructor;
@@ -20,4 +21,21 @@ public class DemoService {
         System.out.println("Header: " + response.getBody().getHeader());
         return "get";
     }
+
+    public String post(){
+        ResponseEntity<BaseResponseInfo> response =
+                demoFeignClient.callPost("CustomHeader", BaseRequestInfo.builder()
+                                .age(1L)
+                                .name("CustomName").build());
+        System.out.println("Name: " + response.getBody().getName());
+        System.out.println("Age: " + response.getBody().getAge());
+        System.out.println("Header: " + response.getBody().getHeader());
+        return "get";
+    }
+
+    public String errorDecoder(){
+        demoFeignClient.callErrorDecoder();
+        return "error";
+    }
+
 }

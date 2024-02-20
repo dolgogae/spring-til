@@ -20,3 +20,4 @@ feign:
 #  HEADERS, // Log the basic information along with request and response headers.
 #  FULL // Log the headers, body, and metadata for both requests and responses.
 # ```
+FeignBlockingLoadBalancerClient

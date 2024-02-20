@@ -1,0 +1,32 @@
+<included>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+<!--    <included>-->
+<!--    ${} 변수의 경우에는 default.xml 의 내용을 참조한다.-->
+<!--        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--            <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+<!--                <level>${CONSOLE_LOG_THRESHOLD}</level>-->
+<!--            </filter>-->
+<!--            <encoder>-->
+<!--                <pattern>${CONSOLE_LOG_PATTERN}</pattern>-->
+<!--                <charset>${CONSOLE_LOG_CHARSET}</charset>-->
+<!--            </encoder>-->
+<!--        </appender>-->
+<!--    </included>-->
+    <appender name="CONSOLE2" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <layout>
+            <pattern>
+                [CONSOLE2] [%-5level] %d{yyyy-MM-dd HH:mm:ss} [%thread] [%logger{40}:%line] - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+<!--
+DEBUG < ... < INFO < WARN < ERROR
+-->
+    <root level="DEBUG">
+<!--        <appender-ref ref="CONSOLE" />-->
+        <appender-ref ref="CONSOLE2" />
+    </root>
+</included>

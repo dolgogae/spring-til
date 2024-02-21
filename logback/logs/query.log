@@ -1,0 +1,8 @@
+#logback.classic pattern: [QUERY] [%-5level] %d{yyyy-MM-dd HH:mm:ss} [%thread] [%logger{40}:%line] - %msg%n
+[QUERY] [INFO ] 2024-02-21 21:48:55 [http-nio-8080-exec-1] [SQL_LOG1:15] - log --> INFO
+[QUERY] [WARN ] 2024-02-21 21:48:55 [http-nio-8080-exec-1] [SQL_LOG1:16] - log --> WARN
+[QUERY] [ERROR] 2024-02-21 21:48:55 [http-nio-8080-exec-1] [SQL_LOG1:17] - log --> ERROR
+#logback.classic pattern: [QUERY] [%-5level] %d{yyyy-MM-dd HH:mm:ss} [%thread] [%logger{40}:%line] - %msg%n
+[QUERY] [INFO ] 2024-02-21 21:51:42 [http-nio-8080-exec-1] [SQL_LOG2:17] - log --> INFO
+[QUERY] [WARN ] 2024-02-21 21:51:42 [http-nio-8080-exec-1] [SQL_LOG2:18] - log --> WARN
+[QUERY] [ERROR] 2024-02-21 21:51:42 [http-nio-8080-exec-1] [SQL_LOG2:19] - log --> ERROR

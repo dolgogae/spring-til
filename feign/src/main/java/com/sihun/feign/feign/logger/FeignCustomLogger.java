@@ -5,10 +5,12 @@ import feign.Request;
 import feign.Response;
 import feign.Util;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.Iterator;
 
+@Slf4j
 @RequiredArgsConstructor
 public class FeignCustomLogger extends Logger {
 
@@ -18,12 +20,12 @@ public class FeignCustomLogger extends Logger {
     @Override
     protected void log(String configKey, String format, Object... args) {
         // log를 어떤 형식으로 남길지 정해준다.
-        System.out.println(String.format(methodTag(configKey) + format, args));
+        log.info(String.format(methodTag(configKey) + format , args));
     }
 
     @Override
     protected void logRequest(String configKey, Level logLevel, Request request) {
-        System.out.println("[Log Request] " + request);
+        log.info("[Log Request] " + request);
     }
 
     @Override

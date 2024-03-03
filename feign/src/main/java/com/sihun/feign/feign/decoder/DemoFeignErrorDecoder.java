@@ -2,8 +2,10 @@ package com.sihun.feign.feign.decoder;
 
 import feign.Response;
 import feign.codec.ErrorDecoder;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 
+@Slf4j
 public class DemoFeignErrorDecoder implements ErrorDecoder {
 
     private final ErrorDecoder errorDecoder = new Default();
@@ -12,7 +14,7 @@ public class DemoFeignErrorDecoder implements ErrorDecoder {
         HttpStatus httpStatus = HttpStatus.resolve(response.status());
 
         if(httpStatus == HttpStatus.NOT_FOUND){
-            System.out.println("[DemoFeignErrorDecoder] Http Status = " + httpStatus);
+            log.info("[DemoFeignErrorDecoder] Http Status = " + httpStatus);
             throw new RuntimeException(String.format("[RuntimeException] Http Status is %s", httpStatus));
         }
 

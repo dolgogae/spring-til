@@ -40,7 +40,7 @@
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>
-                [MDC] %X{job}%n
+                [MDC] %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %X{userId} %msg%n
             </pattern>
             <outputPatternAsHeader>true</outputPatternAsHeader>
         </encoder>

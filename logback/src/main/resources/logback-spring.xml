@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
-    <include resource="logback-spring-${spring.profiles.active}.xml"/>
+
+    <springProfile name="local">
+        <include resource="logback-spring-local.xml"/>
+    </springProfile>
+    <springProfile name="dev">
+        <include resource="logback-spring-dev.xml"/>
+    </springProfile>
 </configuration>

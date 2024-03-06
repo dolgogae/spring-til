@@ -1,13 +1,13 @@
-package com.example.project;
+package com.example.projectdirection;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjectApplication {
+public class ProjectDirectionApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProjectApplication.class, args);
+        SpringApplication.run(ProjectDirectionApplication.class, args);
     }
 
 }

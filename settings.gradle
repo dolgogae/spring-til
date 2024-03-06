@@ -1,1 +1,6 @@
 rootProject.name = 'spring-til'
+include 'async'
+include 'feign'
+include 'logback'
+include 'project-direction'
+include 'proxy'

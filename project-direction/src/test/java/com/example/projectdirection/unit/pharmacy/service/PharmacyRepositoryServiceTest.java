@@ -7,6 +7,7 @@ import com.example.projectdirection.pharmacy.service.PharmacyRepositoryService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,13 +31,9 @@ public class PharmacyRepositoryServiceTest extends ProjectDirectionApplicationTe
     @Autowired
     PharmacyRepositoryService pharmacyRepositoryService;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeEach
+    public void before() throws Exception {
         pharmacyRepository.deleteAll();
-    }
-
-    @After
-    public void tearDown() throws Exception {
     }
 
     @Test

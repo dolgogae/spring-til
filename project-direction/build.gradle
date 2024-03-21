@@ -34,12 +34,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
     // testcontainers
-    testImplementation group: 'org.spockframework', name: 'spock-spring', version: '2.4-M1-groovy-4.0'
+//    testImplementation group: 'org.spockframework', name: 'spock-spring', version: '2.4-M1-groovy-4.0'
+    testImplementation("org.testcontainers:junit-jupiter")
     testImplementation 'org.testcontainers:mariadb:1.17.1'
 
     // spock
-    testImplementation('org.spockframework:spock-core:2.1-groovy-3.0')
-    testImplementation('org.spockframework:spock-spring:2.1-groovy-3.0')
+//    testImplementation('org.spockframework:spock-core:2.1-groovy-3.0')
+//    testImplementation('org.spockframework:spock-spring:2.1-groovy-3.0')
 
     // 런타임에 클래스 기반 spock mock을 만들기 위해서 필요
     testImplementation('net.bytebuddy:byte-buddy:1.12.10')

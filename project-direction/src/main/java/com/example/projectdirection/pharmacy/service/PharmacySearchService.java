@@ -1,5 +1,6 @@
 package com.example.projectdirection.pharmacy.service;
 
+import com.example.projectdirection.pharmacy.cache.PharmacyRedisTemplateService;
 import com.example.projectdirection.pharmacy.dto.PharmacyDto;
 import com.example.projectdirection.pharmacy.entity.Pharmacy;
 import lombok.RequiredArgsConstructor;
@@ -13,13 +14,19 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PharmacySearchService {
 
+    private final PharmacyRedisTemplateService pharmacyRedisTemplateService;
     private final  PharmacyRepositoryService pharmacyRepositoryService;
 
     public List<PharmacyDto> searchPharmacyDtoList(){
         // redis
+        List<PharmacyDto> pharmacyDtoList = pharmacyRedisTemplateService.findAll();
+        if(!pharmacyDtoList.isEmpty()) return pharmacyDtoList;
 
         // db
-        return pharmacyRepositoryService.findAll().stream().map(this::convertToPharmacyDto).toList();
+        return pharmacyRepositoryService.findAll()
+                .stream()
+                .map(this::convertToPharmacyDto)
+                .toList();
     }
 
     private PharmacyDto convertToPharmacyDto(Pharmacy pharmacy ){

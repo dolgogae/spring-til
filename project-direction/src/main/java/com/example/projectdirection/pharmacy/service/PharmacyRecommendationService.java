@@ -5,6 +5,7 @@ import com.example.projectdirection.api.dto.KakaoApiResponseDto;
 import com.example.projectdirection.api.service.KakaoAddressSearchService;
 import com.example.projectdirection.direction.dto.OutputDto;
 import com.example.projectdirection.direction.entity.Direction;
+import com.example.projectdirection.direction.service.Base62Service;
 import com.example.projectdirection.direction.service.DirectionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +28,7 @@ public class PharmacyRecommendationService {
 
     private static final String ROAD_VIEW_BASE_URL = "https://map.kakao.com/link/roadview/";
     private static final String DIRECTION_BASE_URL = "https://map.kakao.com/link/map/";
+    private final Base62Service base62Service;
 
     @Value("${pharmacy.recommendation.base.url}")
     private String baseUrl;
@@ -60,7 +62,7 @@ public class PharmacyRecommendationService {
         return OutputDto.builder()
                 .pharmacyAddress(direction.getTargetAddress())
                 .pharmacyName(direction.getTargetPharmacyName())
-                .directionUrl(result)
+                .directionUrl(baseUrl + base62Service.encodeDirectionId(direction.getId()))
                 .roadViewUrl(ROAD_VIEW_BASE_URL + direction.getTargetLatitude() + ","   + direction.getTargetLongitude())
                 .distance(String.format("%.2f km", direction.getDistance()))
                 .build();

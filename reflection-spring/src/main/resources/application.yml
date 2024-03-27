@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: reflection-spring
+  data:
+    mongodb:
+      uri: mongodb://root:example@localhost:27017/test?replicaSet=rs0&authSource=admin&directConnection=true
+      database: test

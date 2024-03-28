@@ -2,6 +2,7 @@ package com.example.reflectionspring.domain.entity1.data;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
 @Builder

@@ -8,6 +8,7 @@ import com.example.reflectionspring.domain.entity1.data.Entity1;
 import com.example.reflectionspring.domain.entity1.data.Entity1Part;
 import com.example.reflectionspring.domain.entity1.dto.Entity1PartDto;
 import org.bson.types.ObjectId;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -31,6 +32,38 @@ class BaseEntityMapperTest {
     @Test
     void toResponseDtoTest(){
         // given
+
+        Entity1 entity1 = getEntity1();
+
+        // when
+        BaseResponseDto<Entity1PartDto> result = baseMapper.toResponseDto(entity1);
+
+        // then
+        assertEquals(parentId, result.getParentId());
+    }
+
+    @Test
+    void toPartDtoTest(){
+        // given
+        Entity1Part entity1Part = Entity1Part.builder()
+                .name("name")
+                .price(1000L)
+                .product("product")
+                .build();
+        List<Entity1Part> entity1PartList = new ArrayList<>(List.of(entity1Part));
+
+        // when
+        List<Entity1PartDto> result = baseMapper.toPartDtoList(entity1PartList);
+
+        // then
+        assertEquals(1, result.size());
+        Entity1PartDto entity1PartDto = result.get(0);
+        assertEquals("name", entity1PartDto.getName());
+        assertEquals(1000L, entity1PartDto.getPrice());
+        assertEquals("product", entity1PartDto.getProduct());
+    }
+
+    private Entity1 getEntity1() {
         ArrayList<Entity1PartDto> partDtos = new ArrayList<>(List.of(Entity1PartDto.builder()
                 .name("name")
                 .price(1000L)
@@ -39,21 +72,6 @@ class BaseEntityMapperTest {
                 .parentId(parentId)
                 .parts(partDtos)
                 .build();
-        Entity1 entity1 = new Entity1(createDto);
-
-        // when
-        BaseResponseDto<Entity1PartDto> result = baseMapper.toResponseDto(entity1);
-
-        // then
-        System.out.println(result);
-    }
-
-    @Test
-    void toPartDtoTest(){
-        // given
-
-        // when
-
-        // then
+        return new Entity1(createDto);
     }
 }

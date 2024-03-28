@@ -23,18 +23,5 @@ class Entity1RepositoryTest {
 
     @Test
     void insertTest(){
-        // given
-        Entity1 entity1 = Entity1.builder()
-                .id(id)
-                .parentId(parentId)
-                .build();
-
-        System.out.println(id);
-
-        // when
-        Entity1 entity11 = entity1Repository.insert(entity1);
-
-        // then
-        System.out.println(entity11);
     }
 }

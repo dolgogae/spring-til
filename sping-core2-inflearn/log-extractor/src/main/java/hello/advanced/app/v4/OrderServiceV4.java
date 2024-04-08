@@ -1,6 +1,5 @@
 package hello.advanced.app.v4;
 
-import hello.advanced.trace.TraceStatus;
 import hello.advanced.trace.logtrace.LogTrace;
 import hello.advanced.trace.template.AbstractTemplate;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +20,6 @@ public class OrderServiceV4 {
                 return null;
             }
         };
-        template.excute("OrderService.orderItem()");
+        template.execute("OrderService.orderItem()");
     }
 }

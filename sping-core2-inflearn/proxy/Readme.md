@@ -1,9 +1,16 @@
 # Proxy
-- TheadLocal 사용
+- TheadLocal
 - 디자인 패턴
-   > TemplateMethod
-   >  
+    > TemplateMethod  
+  > Proxy  
+  > Decorator  
+  > Strategy
+  > Template Callback
+- JDK 동적 프록시
+- CGLIB
 - Proxy Factory Pattern
     > `/src/test/**/common/advice/*`  
      `/src/test/**/proxyfactory/*`
+- 포인트컷, 어드바이스, 어드바이저
+    > `/src/test/**/advisor/*`
 

@@ -12,5 +12,9 @@
     > `/src/test/**/common/advice/*`  
      `/src/test/**/proxyfactory/*`
 - 포인트컷, 어드바이스, 어드바이저
-    > `/src/test/**/advisor/*`
-
+    > `/src/test/**/advisor/*`  
+  > `/src/main/**/v3_proxyfactory/*`  
+- 빈 후처리기
+    > `/src/main/**/v4_postprocessor/*`
+- spring에서 제공하는 빈 후처리기
+    > `/src/main/**/v5_autoproxy/*`

@@ -18,3 +18,5 @@
     > `/src/main/**/v4_postprocessor/*`
 - spring에서 제공하는 빈 후처리기
     > `/src/main/**/v5_autoproxy/*`
+- spring aspect
+    > `/src/main/**/v6_aop/*`

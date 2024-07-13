@@ -17,3 +17,6 @@ aspect에 순서 적용하기
 
 ## AspectV6Advice
 advice 종류 `@Before`, `@AfterReturning`, `@Throwing`, `@After`
+
+## member.annotation
+advisor annotation 적용
